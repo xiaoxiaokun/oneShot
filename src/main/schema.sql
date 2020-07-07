@@ -26,7 +26,7 @@ create table success_shot (
 `oneShot_id` bigint not null comment '秒杀商品id',
 `user_phone` bigint not null comment '用户手机号',
 `state` tinyint not null default -1 comment '状态',
-`create_time` timestamp not null comment '创建时间',
+`create_time` timestamp not null default current_timestamp comment '创建时间',
 primary key (oneShot_id, user_phone),
 key index_create_time(create_time)
 )engine=InnoDB default charset=utf8 comment='秒杀成功表';

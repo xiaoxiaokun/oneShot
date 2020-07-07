@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.successShotDao">
+    <insert id="insertSuccessShot">
+        insert ignore into success_shot (oneShot_id, user_phone, state)
+        values (#{oneShotId}, #{userPhone}, 0);
+    </insert>
+
+    <select id="queryByIdWithProduct" resultType="successShot">
+        select ss.oneShot_id, ss.user_phone, ss.state, ss.create_time,
+            p.oneShot_id "products.oneShot_id",
+            p.name "products.name",
+            p.number "products.number",
+            p.start_time "products.start_time",
+            p.end_time "products.end_time",
+            p.create_time "products.create_time"
+        from success_shot ss
+        inner join products p on ss.oneShot_id = p.oneShot_id
+        where ss.oneShot_id = #{oneShotId} and ss.user_phone = #{userPhone};
+    </select>
+</mapper>

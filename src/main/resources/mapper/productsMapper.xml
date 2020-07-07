@@ -11,10 +11,17 @@
         and number > 0;
     </update>
 
-    <select id="queryById" parameterType="Long" resultType="products">
+    <select id="queryById" parameterType="long" resultType="products">
         select *
         from products
         where oneShot_id = #{oneShotId};
+    </select>
+
+    <select id="queryAll" resultType="products">
+        select *
+        from products
+        order by create_time desc
+        limit #{offset},#{limit};
     </select>
 
 </mapper>

@@ -1,6 +1,7 @@
 package dao;
 
 import entity.successShot;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author jxx
@@ -13,7 +14,7 @@ public interface successShotDao {
      * @param userPhone
      * @return 插入的行数
      */
-    int insertSuccessShot(long oneShotId, long userPhone);
+    int insertSuccessShot(@Param("oneShotId") long oneShotId, @Param("userPhone") long userPhone);
 
 
     /**
@@ -21,6 +22,6 @@ public interface successShotDao {
      * @param oneShotId
      * @return
      */
-    successShot queryByIdWithProduct(long oneShotId);
+    successShot queryByIdWithProduct(@Param("oneShotId") long oneShotId, @Param("userPhone") long userPhone);
 
 }

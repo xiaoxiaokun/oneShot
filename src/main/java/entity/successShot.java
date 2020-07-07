@@ -15,11 +15,11 @@ public class successShot {
     //多对一
     private products products;
 
-    public entity.products getProducts() {
+    public products getProducts() {
         return products;
     }
 
-    public void setProducts(entity.products products) {
+    public void setProducts(products products) {
         this.products = products;
     }
 
@@ -55,13 +55,15 @@ public class successShot {
         this.state = state;
     }
 
+
     @Override
     public String toString() {
         return "successShot{" +
                 "oneShotId=" + oneShotId +
-                ", userNumber=" + userPhone +
+                ", userPhone=" + userPhone +
                 ", createTime=" + createTime +
                 ", state=" + state +
+                ", products=" + products +
                 '}';
     }
 }
