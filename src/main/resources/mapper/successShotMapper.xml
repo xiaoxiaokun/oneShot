@@ -5,7 +5,7 @@
 <mapper namespace="dao.successShotDao">
     <insert id="insertSuccessShot">
         insert ignore into success_shot (oneShot_id, user_phone, state)
-        values (#{oneShotId}, #{userPhone}, 0);
+        values (#{oneShotId}, #{userPhone}, 1);
     </insert>
 
     <select id="queryByIdWithProduct" resultType="successShot">

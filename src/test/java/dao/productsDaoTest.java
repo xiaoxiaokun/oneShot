@@ -3,6 +3,7 @@ package dao;
 import entity.products;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.*;
@@ -27,7 +28,7 @@ import static org.junit.Assert.*;
 public class productsDaoTest {
 
     //注入dao实现类依赖
-    @Resource
+    @Autowired
     private productsDao productsDao;
 
     @Test
