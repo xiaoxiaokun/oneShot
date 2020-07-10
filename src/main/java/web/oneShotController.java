@@ -32,7 +32,7 @@ public class oneShotController {
     @Autowired
     private oneShotService shotService;
 
-    @RequestMapping(name = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
         //获取列表页
         List<products> list = shotService.getProductsList();
@@ -49,7 +49,7 @@ public class oneShotController {
         if (p == null)
             return "forward:/oneShot/list";
 
-        model.addAttribute("products", p);
+        model.addAttribute("oneShot", p);
         return "detail";
     }
 
@@ -57,7 +57,7 @@ public class oneShotController {
     @RequestMapping(value = "/{oneShotId}/exposer", method = RequestMethod.POST,
                     produces = {"application/json;character=UTF-8"})
     @ResponseBody
-    public oneShotResult<exposer> exposer(Long oneShotId) {
+    public oneShotResult<exposer> exposer(@PathVariable("oneShotId") Long oneShotId) {
         oneShotResult<exposer> result;
 
         try {
@@ -72,7 +72,7 @@ public class oneShotController {
     }
 
 
-    @RequestMapping(name = "/{oneShotId}/{md5}/execution", method = RequestMethod.POST,
+    @RequestMapping(value = "/{oneShotId}/{md5}/execution", method = RequestMethod.POST,
                     produces = {"application/json;character=UTF-8"})
     @ResponseBody
     public oneShotResult<oneShotExecution> execute(@PathVariable("oneShotId") Long oneShotId,
@@ -100,6 +100,7 @@ public class oneShotController {
     }
 
     @RequestMapping(value = "/time/now", method = RequestMethod.GET)
+    @ResponseBody
     public oneShotResult<Long> time(){
         Date date = new Date();
         return new oneShotResult<>(true, date.getTime());

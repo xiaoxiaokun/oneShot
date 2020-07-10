@@ -27,7 +27,7 @@ public interface oneShotService {
     products getById(long oneShotId);
 
     //输出秒杀接口地址，如果秒杀未开启，输出系统时间和秒杀开启结束时间
-    exposer exportOneShotUrl(long oneShotId);
+    exposer exportOneShotUrl(Long oneShotId);
 
     //执行秒杀操作
     oneShotExecution executeOneShot(long oneShotId, long userPhone, String md5)

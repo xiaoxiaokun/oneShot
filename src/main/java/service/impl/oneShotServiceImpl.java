@@ -49,7 +49,7 @@ public class oneShotServiceImpl implements oneShotService {
     }
 
     @Override
-    public exposer exportOneShotUrl(long oneShotId) {
+    public exposer exportOneShotUrl(Long oneShotId) {
         products products = productsDao.queryById(oneShotId);
         if (products == null) {
             return new exposer(false, oneShotId);
@@ -61,7 +61,7 @@ public class oneShotServiceImpl implements oneShotService {
             return new exposer(false, oneShotId, now.getTime(), start.getTime(), end.getTime());
         }
 
-        String md5 = getMD5(oneShotId); //TODO
+        String md5 = getMD5(oneShotId);
         return new exposer(true, md5, oneShotId);
     }
 
